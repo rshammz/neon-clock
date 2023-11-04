@@ -1,0 +1,214 @@
+@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Lato:wght@300;400;700&display=swap");
+
+:root {
+  --black: #191825;
+  --pink: #e900ff;
+  --lavender: #b65dff;
+  --cyan: #31e1f7;
+  --white: #fef3f3;
+}
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+}
+
+body {
+  font-family: "Chakra Petch", sans-serif;
+  background-color: var(--black);
+  background-image: linear-gradient(
+    to right top,
+    #191825,
+    #1a192e,
+    #1c1938,
+    #1e1941,
+    #20194a
+  );
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  margin: 0 24px;
+  height: 12vh;
+}
+
+.menu img {
+  width: 64px;
+  height: 64px;
+}
+
+.btn-container {
+  display: flex;
+}
+
+.btn {
+  cursor: pointer;
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 16px;
+  padding: 8px 16px;
+  background-color: transparent;
+  color: var(--white);
+}
+
+.analog-btn {
+  border-radius: 8px 0 0 8px;
+  border: 1px solid var(--cyan);
+  background-color: var(--lavender);
+  box-shadow: 0px 0px 8px 2px var(--lavender);
+}
+
+.digital-btn {
+  border-radius: 0 8px 8px 0;
+  border: 1px solid var(--cyan);
+  border-left: 0;
+  background-color: transparent;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 88vh;
+  padding-bottom: 64px;
+}
+
+.analog-clock {
+  position: relative;
+  width: 420px;
+  height: 420px;
+  border: 8px solid var(--cyan);
+  box-shadow: 0px 0px 16px 4px var(--cyan);
+  border-radius: 100%;
+  color: var(--pink);
+  background-image: linear-gradient(
+    to left bottom,
+    #191825,
+    #1a192e,
+    #1c1938,
+    #1e1941,
+    #20194a
+  );
+  user-select: none;
+}
+
+.number {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  font-weight: 700;
+  text-align: center;
+  padding-top: 4px;
+  transform: rotate(calc(var(--i) * 30deg));
+}
+
+.number12,
+.number3,
+.number6,
+.number9 {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.hand {
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  transform-origin: bottom;
+  translate: -50% 0;
+}
+
+.hour-hand {
+  height: 25%;
+  width: 4px;
+  border-radius: 25% 25% 0 0%;
+  background-color: var(--pink);
+  box-shadow: 0px 0px 16px 2px var(--pink);
+}
+
+.minute-hand {
+  height: 40%;
+  width: 4px;
+  border-radius: 25% 25% 0 0%;
+  background-color: var(--lavender);
+  box-shadow: 0px 0px 16px 2px var(--lavender);
+}
+
+.second-hand {
+  height: 40%;
+  width: 2px;
+  border-radius: 50% 50% 0 0%;
+  background-color: var(--white);
+  box-shadow: 0px 0px 16px 2px var(--white);
+}
+
+.analog-clock::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  left: 50%;
+  bottom: 50%;
+  border-radius: 100%;
+  translate: -50% 50%;
+  background-color: var(--cyan);
+  box-shadow: 0px 0px 16px 2px var(--cyan);
+}
+
+.digital-clock {
+  display: none;
+  justify-content: space-between;
+  width: 420px;
+  text-align: center;
+  font-size: 80px;
+  color: var(--cyan);
+  text-shadow: 0px 0px 8px var(--cyan);
+}
+
+.hour-digit {
+  width: 120px;
+  color: var(--pink);
+  text-shadow: 0px 0px 16px var(--pink);
+}
+
+.minute-digit {
+  width: 120px;
+  color: var(--lavender);
+  text-shadow: 0px 0px 16px var(--lavender);
+}
+
+.second-digit {
+  width: 120px;
+  color: var(--white);
+  text-shadow: 0px 0px 16px var(--white);
+}
+
+@media (width <= 480px) {
+  .analog-clock {
+    width: 300px;
+    height: 300px;
+  }
+
+  .number {
+    font-size: 12px;
+  }
+
+  .number12,
+  .number3,
+  .number6,
+  .number9 {
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .digital-clock {
+    width: 320px;
+    font-size: 64px;
+  }
+}
